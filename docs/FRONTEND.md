@@ -9,7 +9,7 @@ The frontend is a Next.js 16 application using the App Router. It provides a UI 
 ## Project Structure
 
 ```
-pdf-lab/                    # Project root (frontend + shared)
+pdf-lab/frontend/
 ├── app/
 │   ├── layout.tsx          # Root layout, fonts, metadata
 │   ├── page.tsx            # Homepage with tool grid
@@ -38,7 +38,7 @@ pdf-lab/                    # Project root (frontend + shared)
 ├── next.config.ts
 ├── tsconfig.json
 ├── postcss.config.mjs
-└── .env.local              # NEXT_PUBLIC_API_URL
+└── .env.local              # NEXT_PUBLIC_API_URL (in frontend/)
 ```
 
 ---
@@ -100,6 +100,7 @@ ToolLayout
 ### Install Dependencies
 
 ```bash
+cd frontend
 npm install
 ```
 
@@ -187,7 +188,7 @@ Props: `endpoint`, `accept`, `multiple`, `maxCount`, `label`, `addMoreLabel`, `n
 |-------------------------|--------------------------|--------------------------|
 | NEXT_PUBLIC_API_URL     | http://localhost:4000    | Backend API base URL     |
 
-Create `.env.local` in the project root for local overrides.
+Create `.env.local` in the `frontend/` folder for local overrides.
 
 ---
 

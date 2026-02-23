@@ -42,7 +42,7 @@ PDF Lab has two parts to deploy:
 
 **Frontend:**
 1. Add another service → **Deploy from GitHub**
-2. Root Directory: `./` (or create a monorepo config)
+2. Root Directory: `frontend/`
 3. Framework: Next.js (auto-detected)
 4. Add env: `NEXT_PUBLIC_API_URL=https://your-backend.railway.app`
 
@@ -81,7 +81,7 @@ fly deploy
 
 Use the existing Dockerfile; Fly will build from it.
 
-**Frontend:** Deploy to Vercel (see Option 4).
+**Frontend:** Deploy to Vercel with root directory set to `frontend/` (see Option 4).
 
 ---
 
@@ -90,7 +90,7 @@ Use the existing Dockerfile; Fly will build from it.
 **Frontend:**
 1. [Vercel](https://vercel.com) → Import repo
 2. Framework: Next.js
-3. Root: `./` (project root)
+3. Root Directory: `frontend/`
 4. Environment variable:
    - `NEXT_PUBLIC_API_URL` = your backend URL (e.g. `https://pdf-lab-api.railway.app`)
 

@@ -72,9 +72,9 @@ Backend runs at `http://localhost:4000`.
 ### 3. Frontend
 
 ```bash
-# from project root
+cd frontend
 npm install
-echo "NEXT_PUBLIC_API_URL=http://localhost:4000" > .env.local
+cp .env.example .env.local   # or echo "NEXT_PUBLIC_API_URL=http://localhost:4000" > .env.local
 npm run dev
 ```
 
@@ -88,6 +88,12 @@ Visit [http://localhost:3000](http://localhost:3000) and use any PDF tool.
 
 ```
 pdf-lab/
+├── frontend/          # Next.js App Router
+│   ├── app/
+│   ├── components/
+│   ├── services/
+│   ├── types/
+│   └── package.json
 ├── backend/           # Express API
 │   ├── src/
 │   │   ├── server.ts
@@ -96,11 +102,10 @@ pdf-lab/
 │   │   ├── services/   # qpdf, Ghostscript, ImageMagick
 │   │   └── utils/
 │   ├── uploads/
-│   └── outputs/
-├── app/               # Next.js App Router
-├── components/
-├── services/
-└── types/
+│   ├── outputs/
+│   └── package.json
+├── docs/
+└── Dockerfile         # Backend only
 ```
 
 ## API Endpoints
@@ -126,7 +131,7 @@ pdf-lab/
 | API_BASE | http://localhost:4000 | Public base URL for download links |
 | FRONTEND_URL | http://localhost:3000 | CORS origin |
 
-### Frontend (.env.local)
+### Frontend (frontend/.env.local)
 
 | Variable | Default | Description |
 |----------|---------|-------------|
