@@ -4,6 +4,7 @@
 
 - **[BACKEND.md](./BACKEND.md)** – Backend architecture, build, API, security
 - **[FRONTEND.md](./FRONTEND.md)** – Frontend structure, build, components
+- **[DEPLOYMENT.md](./DEPLOYMENT.md)** – How to deploy to production
 
 ## Overview
 
