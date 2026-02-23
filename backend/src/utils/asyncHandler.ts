@@ -7,7 +7,5 @@ type AsyncHandler = (
 ) => Promise<void>;
 
 export function asyncHandler(fn: AsyncHandler): AsyncHandler {
-  return (req, res, next) => {
-    Promise.resolve(fn(req, res, next)).catch(next);
-  };
+  return (req, res, next) => Promise.resolve(fn(req, res, next)).catch(next);
 }
