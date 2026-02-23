@@ -1,16 +1,26 @@
-# PDF Lab Backend
+# ----------- BUILD STAGE -----------
+FROM node:20-alpine AS builder
+
+WORKDIR /app
+COPY backend/package*.json ./
+RUN npm ci
+COPY backend/ ./
+RUN npm run build
+
+# ----------- PRODUCTION STAGE -----------
 FROM node:20-alpine
 
-# Install PDF tools
 RUN apk add --no-cache qpdf ghostscript imagemagick
+
+# Fix ImageMagick PDF policy
+RUN sed -i 's/rights="none" pattern="PDF"/rights="read|write" pattern="PDF"/' /etc/ImageMagick-*/policy.xml
 
 WORKDIR /app
 
-COPY backend/package*.json ./
-RUN npm ci
+COPY --from=builder /app/package*.json ./
+RUN npm ci --omit=dev
 
-COPY backend/ ./
-RUN npm run build
+COPY --from=builder /app/dist ./dist
 
 RUN mkdir -p uploads outputs
 
