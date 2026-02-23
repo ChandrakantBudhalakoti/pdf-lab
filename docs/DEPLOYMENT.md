@@ -175,6 +175,20 @@ Set `FRONTEND_URL` to your deployed frontend origin (e.g. `https://pdf-lab.verce
 
 ---
 
+## Frontend Docker Build (Railway, etc.)
+
+If the frontend build fails with `useContext` or key warnings:
+
+1. **Set NODE_ENV** in your Dockerfile before build:
+   ```dockerfile
+   ENV NODE_ENV=production
+   RUN npm ci && npm dedupe && npm run build
+   ```
+
+2. **Use Node 20.19+ or 22.13+** to avoid engine warnings.
+
+---
+
 ## File Storage
 
 Uploads and outputs are stored on the server filesystem. On platforms with ephemeral disks (e.g. Railway, Render free tier), files may be lost on restart. For production:

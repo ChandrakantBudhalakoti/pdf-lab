@@ -1,11 +1,15 @@
 "use client";
 
+import React from "react";
+
 export default function NotFound() {
-  return (
-    <html>
-      <body>
-        <h2>Page not found</h2>
-      </body>
-    </html>
+  return React.createElement(
+    "html",
+    { lang: "en" },
+    React.createElement(
+      "body",
+      null,
+      React.createElement("h2", null, "Page not found")
+    )
   );
 }

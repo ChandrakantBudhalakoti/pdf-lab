@@ -1,8 +1,10 @@
 {
   "name": "pdf-lab-frontend",
   "version": "0.1.0",
-  "engines": {
-    "node": ">=20.9.0"
+  "engines": { "node": ">=20.9.0" },
+  "overrides": {
+    "react": "19.2.3",
+    "react-dom": "19.2.3"
   },
   "private": true,
   "scripts": {

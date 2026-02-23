@@ -1,11 +1,15 @@
 "use client";
 
+import React from "react";
+
 export default function GlobalError() {
-  return (
-    <html>
-      <body>
-        <h2>Something went wrong.</h2>
-      </body>
-    </html>
+  return React.createElement(
+    "html",
+    { lang: "en" },
+    React.createElement(
+      "body",
+      null,
+      React.createElement("h2", null, "Something went wrong.")
+    )
   );
 }
