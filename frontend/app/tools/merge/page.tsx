@@ -6,6 +6,7 @@ export default function MergePage() {
     <ToolLayout
       title="Merge PDF"
       description="Combine multiple PDF files into one. Add files one by one or select multiple at once."
+      currentToolId="merge"
     >
       <ToolPageClient
         endpoint="/api/merge"

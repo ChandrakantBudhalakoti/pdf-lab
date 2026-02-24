@@ -6,6 +6,7 @@ export default function LockPage() {
     <ToolLayout
       title="Lock PDF"
       description="Add password protection to your PDF."
+      currentToolId="lock"
     >
       <ToolPageClient
         endpoint="/api/lock"

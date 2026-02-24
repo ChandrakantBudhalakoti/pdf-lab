@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useState } from "react";
+import { Upload } from "lucide-react";
 
 interface FileDropzoneProps {
   onFiles: (files: File[]) => void;
@@ -33,7 +34,9 @@ export function FileDropzone({
         return;
       }
       if (multiple && existingCount + arr.length > maxCount) {
-        setError(`Maximum ${maxCount} file(s) allowed. You can add ${maxCount - existingCount} more.`);
+        setError(
+          `Maximum ${maxCount} file(s) allowed. You can add ${maxCount - existingCount} more.`,
+        );
         return;
       }
       if (!multiple && arr.length > maxCount) {
@@ -42,7 +45,7 @@ export function FileDropzone({
       }
       onFiles(arr);
     },
-    [multiple, maxCount, existingCount, onFiles]
+    [multiple, maxCount, existingCount, onFiles],
   );
 
   const handleDrop = useCallback(
@@ -53,7 +56,7 @@ export function FileDropzone({
       const files = e.dataTransfer.files;
       if (files.length) validateAndEmit(files);
     },
-    [disabled, validateAndEmit]
+    [disabled, validateAndEmit],
   );
 
   const handleDragOver = useCallback((e: React.DragEvent) => {
@@ -71,7 +74,7 @@ export function FileDropzone({
       if (files?.length) validateAndEmit(files);
       e.target.value = "";
     },
-    [validateAndEmit]
+    [validateAndEmit],
   );
 
   return (
@@ -95,9 +98,7 @@ export function FileDropzone({
           className="hidden"
         />
         <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white text-slate-400 shadow-sm">
-          <svg className="h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
-          </svg>
+          <Upload className="h-7 w-7" />
         </div>
         <div className="text-center">
           <p className="font-medium text-slate-700">{label}</p>
@@ -108,7 +109,9 @@ export function FileDropzone({
           </p>
         </div>
       </label>
-      {error && <p className="mt-2 text-sm font-medium text-red-600">{error}</p>}
+      {error && (
+        <p className="mt-2 text-sm font-medium text-red-600">{error}</p>
+      )}
     </div>
   );
 }

@@ -6,6 +6,7 @@ export default function WatermarkPage() {
     <ToolLayout
       title="Watermark PDF"
       description="Overlay a watermark PDF on each page of your document."
+      currentToolId="watermark"
     >
       <ToolPageClient
         endpoint="/api/watermark"

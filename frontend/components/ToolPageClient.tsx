@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { File, X, Loader2 } from "lucide-react";
 import { FileDropzone } from "./FileDropzone";
 import { DownloadButton } from "./DownloadButton";
 import { uploadFiles } from "@/services/api";
@@ -109,9 +110,7 @@ export function ToolPageClient({
                 className="flex items-center justify-between gap-2 rounded-lg bg-white px-3 py-2 text-sm text-slate-700 shadow-sm"
               >
                 <span className="flex items-center gap-2 truncate">
-                  <svg className="h-4 w-4 shrink-0 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                  </svg>
+                  <File className="h-4 w-4 shrink-0 text-slate-400" />
                   <span className="truncate">{f.name}</span>
                   <span className="text-slate-400">#{i + 1}</span>
                 </span>
@@ -122,9 +121,7 @@ export function ToolPageClient({
                     className="shrink-0 rounded p-1 text-slate-400 hover:bg-red-50 hover:text-red-600"
                     aria-label="Remove file"
                   >
-                    <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                    </svg>
+                    <X className="h-5 w-5" />
                   </button>
                 )}
               </li>
@@ -145,7 +142,9 @@ export function ToolPageClient({
 
       {needsWatermark && (
         <div>
-          <h3 className="mb-2 text-sm font-semibold text-slate-700">Watermark PDF</h3>
+          <h3 className="mb-2 text-sm font-semibold text-slate-700">
+            Watermark PDF
+          </h3>
           <FileDropzone
             onFiles={(f) => setWatermarkFile(f[0] ?? null)}
             accept=".pdf"
@@ -202,10 +201,7 @@ export function ToolPageClient({
       >
         {loading ? (
           <span className="inline-flex items-center gap-2">
-            <svg className="h-5 w-5 animate-spin" fill="none" viewBox="0 0 24 24">
-              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
-            </svg>
+            <Loader2 className="h-5 w-5 animate-spin" />
             Processing...
           </span>
         ) : (
@@ -218,7 +214,9 @@ export function ToolPageClient({
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <p className="font-semibold text-emerald-800">Done!</p>
-              <p className="mt-1 text-sm text-emerald-700">Your file is ready to download.</p>
+              <p className="mt-1 text-sm text-emerald-700">
+                Your file is ready to download.
+              </p>
             </div>
             <DownloadButton
               url={(result as { downloadUrl: string }).downloadUrl}
@@ -231,9 +229,13 @@ export function ToolPageClient({
       {hasMultipleDownloads && (
         <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-6">
           <p className="font-semibold text-emerald-800">Done!</p>
-          <p className="mt-1 text-sm text-emerald-700">Your files are ready to download.</p>
+          <p className="mt-1 text-sm text-emerald-700">
+            Your files are ready to download.
+          </p>
           <div className="mt-4 flex flex-wrap gap-3">
-            {(result as { files: { filename: string; downloadUrl: string }[] }).files.map((f) => (
+            {(
+              result as { files: { filename: string; downloadUrl: string }[] }
+            ).files.map((f) => (
               <DownloadButton
                 key={f.filename}
                 url={f.downloadUrl}

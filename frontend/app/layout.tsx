@@ -3,7 +3,12 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "PDF Lab - Free PDF Tools",
-  description: "Merge, split, compress, convert PDFs. All processing done locally.",
+  description:
+    "Merge, split, compress, convert PDFs. All processing done locally.",
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/pdf-lab-icon.png",
+  },
 };
 
 export default function RootLayout({
@@ -13,9 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="antialiased font-sans">
-        {children}
-      </body>
+      <body className="antialiased font-sans">{children}</body>
     </html>
   );
 }

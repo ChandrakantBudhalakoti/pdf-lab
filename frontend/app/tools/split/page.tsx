@@ -6,6 +6,7 @@ export default function SplitPage() {
     <ToolLayout
       title="Split PDF"
       description="Extract each page into a separate PDF file."
+      currentToolId="split"
     >
       <ToolPageClient
         endpoint="/api/split"

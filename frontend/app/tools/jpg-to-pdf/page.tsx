@@ -6,6 +6,7 @@ export default function JpgToPdfPage() {
     <ToolLayout
       title="JPG to PDF"
       description="Convert JPG images to a single PDF document."
+      currentToolId="jpg-to-pdf"
     >
       <ToolPageClient
         endpoint="/api/jpg-to-pdf"

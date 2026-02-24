@@ -6,6 +6,7 @@ export default function PdfToJpgPage() {
     <ToolLayout
       title="PDF to JPG"
       description="Convert each PDF page to a JPG image."
+      currentToolId="pdf-to-jpg"
     >
       <ToolPageClient
         endpoint="/api/pdf-to-jpg"

@@ -6,6 +6,7 @@ export default function CompressPage() {
     <ToolLayout
       title="Compress PDF"
       description="Reduce PDF file size while keeping good quality."
+      currentToolId="compress"
     >
       <ToolPageClient
         endpoint="/api/compress"

@@ -6,6 +6,7 @@ export default function UnlockPage() {
     <ToolLayout
       title="Unlock PDF"
       description="Remove password protection from a PDF."
+      currentToolId="unlock"
     >
       <ToolPageClient
         endpoint="/api/unlock"
