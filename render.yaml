@@ -1,0 +1,35 @@
+# Render Blueprint for the PDF Lab backend.
+# Docs: https://render.com/docs/blueprint-spec
+#
+# This deploys the Express API as a Docker web service (it needs the
+# qpdf / ghostscript / imagemagick binaries installed in the Dockerfile,
+# which is why it can't run on Vercel-style serverless platforms).
+#
+# To deploy: push this file, then on Render go to
+#   New → Blueprint → connect this repo. Render reads this file automatically.
+
+services:
+  - type: web
+    name: pdf-lab-backend
+    runtime: docker
+    plan: free # free tier: 512MB RAM, spins down after ~15 min idle
+    region: oregon # change to singapore/frankfurt/etc. if closer to you
+    dockerfilePath: ./Dockerfile
+    dockerContext: . # build context = repo root (Dockerfile copies backend/)
+    healthCheckPath: /api/health
+    autoDeploy: true # redeploy on every push to the connected branch
+    envVars:
+      - key: NODE_ENV
+        value: production
+      # PORT is injected automatically by Render; the app reads process.env.PORT.
+
+      # Public URL of THIS service, used to build /outputs download links.
+      # After the first deploy, set this to your service URL, e.g.
+      #   https://pdf-lab-backend.onrender.com
+      - key: API_BASE
+        sync: false
+
+      # Your deployed frontend origin (used for CORS), e.g.
+      #   https://your-app.vercel.app
+      - key: FRONTEND_URL
+        sync: false
