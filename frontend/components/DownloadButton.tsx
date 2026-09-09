@@ -31,7 +31,7 @@ export function DownloadButton({
       a.click();
       document.body.removeChild(a);
       URL.revokeObjectURL(blobUrl);
-    } catch (err) {
+    } catch {
       window.open(url, "_blank");
     } finally {
       setDownloading(false);
