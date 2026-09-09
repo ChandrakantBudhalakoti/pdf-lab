@@ -8,6 +8,8 @@
     "dev:frontend": "npm run dev --prefix frontend",
     "build:backend": "npm run build --prefix backend",
     "build:frontend": "npm run build --prefix frontend",
+    "lint": "npm run lint --prefix frontend",
+    "typecheck": "npm run typecheck --prefix frontend && npm run typecheck --prefix backend",
     "format": "npm run format --prefix frontend && npm run format --prefix backend",
     "format:check": "npm run format:check --prefix frontend && npm run format:check --prefix backend"
   }
