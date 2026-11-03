@@ -1,5 +1,12 @@
+import { createToolMetadata } from "@/lib/seo";
 import { ToolLayout } from "@/components/ToolLayout";
 import { ToolPageClient } from "@/components/ToolPageClient";
+
+export const metadata = createToolMetadata(
+  "Merge PDF files online",
+  "Combine multiple PDF files into one document with PDF Lab's free online PDF merger.",
+  "/tools/merge"
+);
 
 export default function MergePage() {
   return (

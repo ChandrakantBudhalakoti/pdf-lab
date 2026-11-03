@@ -1,5 +1,12 @@
+import { createToolMetadata } from "@/lib/seo";
 import { ToolLayout } from "@/components/ToolLayout";
 import { ToolPageClient } from "@/components/ToolPageClient";
+
+export const metadata = createToolMetadata(
+  "Add a watermark to PDF online",
+  "Apply a watermark PDF to every page of your document with PDF Lab's free online tool.",
+  "/tools/watermark"
+);
 
 export default function WatermarkPage() {
   return (

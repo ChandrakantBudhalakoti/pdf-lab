@@ -1,14 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import {
-  Merge,
-  Scissors,
-  Zap,
-  Image as ImageIcon,
-  Stamp,
-  Lock,
-  LockOpen,
-} from "lucide-react";
+import { Merge, Scissors, Zap, Image as ImageIcon, Stamp, Lock, LockOpen } from "lucide-react";
 
 const TOOLS = [
   {
@@ -102,8 +94,8 @@ export default function Home() {
             Free PDF tools for everyone
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-600">
-            Merge, split, compress, and convert PDFs. All processing runs
-            locally on your device — no uploads to external servers.
+            Merge, split, compress, and convert PDF files with free online tools. Choose a tool to
+            get started.
           </p>
         </div>
 

@@ -13,6 +13,8 @@ pdf-lab/frontend/
 ├── app/
 │   ├── layout.tsx          # Root layout, fonts, metadata
 │   ├── page.tsx            # Homepage with tool grid
+│   ├── robots.ts           # Robots.txt generation
+│   ├── sitemap.ts          # XML sitemap generation
 │   ├── globals.css         # Tailwind imports, CSS variables
 │   └── tools/              # Tool-specific pages
 │       ├── merge/page.tsx
@@ -31,6 +33,8 @@ pdf-lab/frontend/
 │   └── ToolCard.tsx        # (optional) Card for tool grid
 ├── services/
 │   └── api.ts              # API client (fetch wrapper)
+├── lib/
+│   └── seo.ts              # Canonical site URL and tool metadata helper
 ├── types/
 │   └── api.ts              # TypeScript types for API responses
 ├── public/                 # Static assets
@@ -44,6 +48,13 @@ pdf-lab/frontend/
 ---
 
 ## How It Works
+
+### SEO
+
+The app generates `/robots.txt` and `/sitemap.xml` from the App Router metadata
+routes. The site origin used for canonical, Open Graph, and sitemap URLs is
+defined in `lib/seo.ts`; update it when the production domain changes. Each PDF
+tool page has a distinct title, description, canonical URL, and social metadata.
 
 ### Page Flow
 
